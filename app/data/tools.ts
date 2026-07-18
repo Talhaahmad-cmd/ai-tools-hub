@@ -1,0 +1,58 @@
+const tools = [
+  {
+    id: 1,
+    name: "ChatGPT",
+    category: "Writing",
+    rating: 4.9,
+    logo: "🤖",
+    description: "AI assistant for writing, coding, and learning.",
+    url: "https://chatgpt.com",
+  },
+  {
+    id: 2,
+    name: "GitHub Copilot",
+    category: "Coding",
+    rating: 4.8,
+    logo: "💻",
+    description: "AI coding assistant.",
+    url: "https://github.com/features/copilot",
+  },
+  {
+    id: 3,
+    name: "Midjourney",
+    category: "Images",
+    rating: 4.8,
+    logo: "🎨",
+    description: "Generate amazing AI artwork.",
+    url: "https://www.midjourney.com",
+  },
+  {
+    id: 4,
+    name: "Runway",
+    category: "Video",
+    rating: 4.7,
+    logo: "🎬",
+    description: "AI-powered video generation.",
+    url: "https://runwayml.com",
+  },
+  {
+    id: 5,
+    name: "Canva AI",
+    category: "Design",
+    rating: 4.9,
+    logo: "🎯",
+    description: "Design graphics with AI.",
+    url: "https://www.canva.com",
+  },
+  {
+    id: 6,
+    name: "Notion AI",
+    category: "Productivity",
+    rating: 4.7,
+    logo: "📝",
+    description: "Boost productivity using AI.",
+    url: "https://www.notion.so",
+  },
+];
+
+export default tools;
