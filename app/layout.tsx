@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://yourdomain.com"),
+  metadataBase: new URL("https://ai-tools-hub-ebon-kappa.vercel.app"),
 
   title: {
     default: "AI Tools Hub",
@@ -22,13 +23,16 @@ export const metadata: Metadata = {
     "Artificial Intelligence",
   ],
 
-  authors: [{ name: "AI Tools Hub" }],
+  authors: [
+    {
+      name: "AI Tools Hub",
+    },
+  ],
 
   openGraph: {
     title: "AI Tools Hub",
-    description:
-      "Discover the best AI tools in one place.",
-    url: "https://yourdomain.com",
+    description: "Discover the best AI tools in one place.",
+    url: "https://ai-tools-hub-ebon-kappa.vercel.app",
     siteName: "AI Tools Hub",
     images: [
       {
@@ -45,8 +49,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "AI Tools Hub",
-    description:
-      "Discover the best AI tools.",
+    description: "Discover the best AI tools.",
     images: ["/og-image.png"],
   },
 
@@ -55,14 +58,19 @@ export const metadata: Metadata = {
     follow: true,
   },
 };
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
