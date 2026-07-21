@@ -1,20 +1,68 @@
-export default function Navbar() {
-  return (
-    <nav className="sticky top-0 z-50 flex items-center justify-between px-8 py-5 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
-      <h1 className="text-2xl font-bold text-cyan-400">
-        AI Tools Hub
-      </h1>
+"use client";
 
-      <div className="hidden md:flex gap-8 text-gray-300">
-        <a href="/">Home</a>
-        <a href="/tools">Tools</a>
-        <a href="#">Pricing</a>
-        <a href="#">Contact</a>
+import { useState } from "react";
+import Link from "next/link";
+
+export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const links = [
+    { name: "Home", href: "/" },
+    { name: "Tools", href: "/tools" },
+    { name: "Favorites", href: "/favorites" },
+    { name: "Pricing", href: "/pricing" },
+    { name: "About", href: "/about" },
+      { name: "Contact", href: "/contact" },
+      { name: "FAQ", href: "/faq" },
+  ];
+
+  return (
+    <nav className="sticky top-0 z-50 bg-slate-950/90 backdrop-blur border-b border-slate-800">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+        <Link
+          href="/"
+          className="text-2xl font-bold text-cyan-400"
+        >
+          AI Tools Hub
+        </Link>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-8">
+          {links.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className="hover:text-cyan-400 transition"
+            >
+              {link.name}
+            </Link>
+          ))}
+        </div>
+
+        {/* Mobile Button */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden text-3xl"
+        >
+          {menuOpen ? "✕" : "☰"}
+        </button>
       </div>
 
-      <button className="bg-cyan-500 hover:bg-cyan-600 px-5 py-2 rounded-lg">
-        Login
-      </button>
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="md:hidden border-t border-slate-800 bg-slate-950">
+          {links.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              onClick={() => setMenuOpen(false)}
+              className="block px-6 py-4 hover:bg-slate-900 transition"
+            >
+              {link.name}
+            </Link>
+          ))}
+        </div>
+      )}
     </nav>
   );
 }
