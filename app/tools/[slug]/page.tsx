@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import tools from "../../data/tools";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -8,6 +9,42 @@ type Props = {
     slug: string;
   }>;
 };
+
+export async function generateMetadata({
+  params,
+}: Props): Promise<Metadata> {
+  const { slug } = await params;
+
+  const tool = tools.find((item) => item.slug === slug);
+
+  if (!tool) {
+    return {
+      title: "AI Tool Not Found",
+      description: "The requested AI tool could not be found.",
+    };
+  }
+
+  return {
+    title: `${tool.name} – Features, Rating & Details`,
+    description: `${tool.description} Explore ${tool.name} on AI Tools Hub and discover what it can do.`,
+    keywords: [
+      tool.name,
+      `${tool.name} AI`,
+      `${tool.name} review`,
+      `${tool.name} features`,
+      `${tool.category} AI tools`,
+      "AI tools",
+      "AI tools directory",
+    ],
+    openGraph: {
+      title: `${tool.name} – AI Tools Hub`,
+      description: tool.description,
+      url: `https://ai-tools-hub-ebon-kappa.vercel.app/tools/${tool.slug}`,
+      siteName: "AI Tools Hub",
+      type: "website",
+    },
+  };
+}
 
 export default async function ToolPage({ params }: Props) {
   const { slug } = await params;
@@ -29,9 +66,7 @@ export default async function ToolPage({ params }: Props) {
         </Link>
 
         <div className="flex items-center justify-between mt-6">
-          <h1 className="text-5xl font-bold">
-            {tool.name}
-          </h1>
+          <h1 className="text-5xl font-bold">{tool.name}</h1>
 
           <FavoriteButton toolId={tool.id} />
         </div>
