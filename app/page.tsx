@@ -11,6 +11,7 @@ import Features from "./components/Features";
 import Pricing from "./components/Pricing";
 import Footer from "./components/Footer";
 import ReviewSection from "./components/ReviewSection";
+
 export default function Home() {
   const [search, setSearch] = useState("");
 
@@ -32,23 +33,26 @@ export default function Home() {
       <Features
         search={search}
       />
-<ReviewSection />
+
+      <ReviewSection />
+
       <Pricing />
 
       <Footer />
+
       <script
-  type="application/ld+json"
-  dangerouslySetInnerHTML={{
-    __html: JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      name: "AI Tools Hub",
-      url: "https://yourdomain.com",
-      description:
-        "Discover the best AI tools for writing, coding, design, and productivity.",
-    }),
-  }}
-/>
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "AI Tools Hub",
+            url: "https://ai-tools-hub-ebon-kappa.vercel.app",
+            description:
+              "Discover the best AI tools for writing, coding, design, images, video, and productivity.",
+          }),
+        }}
+      />
     </main>
   );
 }
