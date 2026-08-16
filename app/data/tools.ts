@@ -127,6 +127,17 @@ const tools = [
     rating: 4.9,
     url: "https://elevenlabs.io",
   },
+  {
+    id: 13,
+    slug: "agent-qa",
+    name: "Agent QA",
+    description:
+      "Source-available QA harness for natural-language web and mobile regression tests; provider charges may apply.",
+    category: "Coding",
+    logo: "🧪",
+    rating: 0,
+    url: "https://github.com/vostride/agent-qa",
+  },
 ];
 
 export default tools;
