@@ -26,7 +26,8 @@ export async function generateMetadata({
 
   return {
     title: `${tool.name} – Features, Rating & Details`,
-    description: `${tool.description} Explore ${tool.name} on AI Tools Hub and discover what it can do.`,
+    description: `${tool.description} Explore ${tool.name} on AI Tools Hub and discover its features, rating, and details.`,
+
     keywords: [
       tool.name,
       `${tool.name} AI`,
@@ -34,14 +35,31 @@ export async function generateMetadata({
       `${tool.name} features`,
       `${tool.category} AI tools`,
       "AI tools",
+      "best AI tools",
       "AI tools directory",
     ],
+
+    alternates: {
+      canonical: `https://ai-tools-hub-ebon-kappa.vercel.app/tools/${tool.slug}`,
+    },
+
     openGraph: {
       title: `${tool.name} – AI Tools Hub`,
       description: tool.description,
       url: `https://ai-tools-hub-ebon-kappa.vercel.app/tools/${tool.slug}`,
       siteName: "AI Tools Hub",
       type: "website",
+    },
+
+    twitter: {
+      card: "summary",
+      title: `${tool.name} – AI Tools Hub`,
+      description: tool.description,
+    },
+
+    robots: {
+      index: true,
+      follow: true,
     },
   };
 }
