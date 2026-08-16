@@ -26,6 +26,7 @@ export async function generateMetadata({
 
   return {
     title: `${tool.name} – Features, Rating & Details`,
+
     description: `${tool.description} Explore ${tool.name} on AI Tools Hub and discover its features, rating, and details.`,
 
     keywords: [
@@ -73,45 +74,65 @@ export default async function ToolPage({ params }: Props) {
     notFound();
   }
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: tool.name,
+    description: tool.description,
+    applicationCategory: tool.category,
+    url: tool.url,
+  };
+
   return (
-    <main className="min-h-screen bg-slate-950 text-white px-6 py-20">
-      <div className="max-w-4xl mx-auto">
-        <Link
-          href="/tools"
-          className="text-cyan-400 hover:underline"
-        >
-          ← Back to Tools
-        </Link>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd),
+        }}
+      />
 
-        <div className="flex items-center justify-between mt-6">
-          <h1 className="text-5xl font-bold">{tool.name}</h1>
-
-          <FavoriteButton toolId={tool.id} />
-        </div>
-
-        <p className="text-slate-300 mt-6 text-lg">
-          {tool.description}
-        </p>
-
-        <p className="mt-4 text-cyan-400">
-          Category: {tool.category}
-        </p>
-
-        <p className="mt-2 text-yellow-400">
-          ⭐ {tool.rating}
-        </p>
-
-        <div className="mt-10">
-          <a
-            href={tool.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block rounded-lg bg-cyan-500 px-6 py-3 font-semibold text-black hover:bg-cyan-400"
+      <main className="min-h-screen bg-slate-950 text-white px-6 py-20">
+        <div className="max-w-4xl mx-auto">
+          <Link
+            href="/tools"
+            className="text-cyan-400 hover:underline"
           >
-            Visit {tool.name}
-          </a>
+            ← Back to Tools
+          </Link>
+
+          <div className="flex items-center justify-between mt-6">
+            <h1 className="text-5xl font-bold">
+              {tool.name}
+            </h1>
+
+            <FavoriteButton toolId={tool.id} />
+          </div>
+
+          <p className="text-slate-300 mt-6 text-lg">
+            {tool.description}
+          </p>
+
+          <p className="mt-4 text-cyan-400">
+            Category: {tool.category}
+          </p>
+
+          <p className="mt-2 text-yellow-400">
+            ⭐ {tool.rating}
+          </p>
+
+          <div className="mt-10">
+            <a
+              href={tool.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block rounded-lg bg-cyan-500 px-6 py-3 font-semibold text-black hover:bg-cyan-400"
+            >
+              Visit {tool.name}
+            </a>
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </>
   );
 }
