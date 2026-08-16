@@ -127,6 +127,17 @@ const tools = [
     rating: 4.9,
     url: "https://elevenlabs.io",
   },
+  {
+    id: 13,
+    slug: "ideahunter",
+    name: "IdeaHunter",
+    description:
+      "AI startup idea research for demand signals, buyer pain, MVP scope, and monetization paths.",
+    category: "Productivity",
+    logo: "💡",
+    rating: 4.7,
+    url: "https://ideahunter.today",
+  },
 ];
 
 export default tools;
