@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Best AI Tools Directory",
   description:
     "Explore the best AI tools for writing, coding, images, video, design, and productivity. Find powerful AI tools in one easy-to-use directory.",
+
   keywords: [
     "AI tools",
     "best AI tools",
@@ -17,6 +18,16 @@ export const metadata: Metadata = {
     "AI design tools",
     "AI productivity tools",
   ],
+
+  alternates: {
+    canonical: "https://ai-tools-hub-ebon-kappa.vercel.app/tools",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
   openGraph: {
     title: "Best AI Tools Directory | AI Tools Hub",
     description:
@@ -24,6 +35,13 @@ export const metadata: Metadata = {
     url: "https://ai-tools-hub-ebon-kappa.vercel.app/tools",
     siteName: "AI Tools Hub",
     type: "website",
+  },
+
+  twitter: {
+    card: "summary",
+    title: "Best AI Tools Directory | AI Tools Hub",
+    description:
+      "Explore the best AI tools for writing, coding, images, video, design, and productivity.",
   },
 };
 
