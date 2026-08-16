@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import ToolsClient from "./ToolsClient";
 
+const siteUrl = "https://ai-tools-hub-ebon-kappa.vercel.app";
+
 export const metadata: Metadata = {
-  title: "Best AI Tools Directory",
+  title: "Best AI Tools Directory | AI Tools Hub",
+
   description:
-    "Explore the best AI tools for writing, coding, images, video, design, and productivity. Find powerful AI tools in one easy-to-use directory.",
+    "Discover the best AI tools for writing, coding, image generation, video, design, productivity, and more. Explore and compare powerful AI tools in one directory.",
 
   keywords: [
     "AI tools",
@@ -13,14 +16,16 @@ export const metadata: Metadata = {
     "free AI tools",
     "AI writing tools",
     "AI coding tools",
-    "AI image tools",
+    "AI image generation tools",
     "AI video tools",
     "AI design tools",
     "AI productivity tools",
+    "AI tools for students",
+    "AI tools for developers",
   ],
 
   alternates: {
-    canonical: "https://ai-tools-hub-ebon-kappa.vercel.app/tools",
+    canonical: `${siteUrl}/tools`,
   },
 
   robots: {
@@ -31,8 +36,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Best AI Tools Directory | AI Tools Hub",
     description:
-      "Explore the best AI tools for writing, coding, images, video, design, and productivity.",
-    url: "https://ai-tools-hub-ebon-kappa.vercel.app/tools",
+      "Discover and explore the best AI tools for writing, coding, images, video, design, productivity, and more.",
+    url: `${siteUrl}/tools`,
     siteName: "AI Tools Hub",
     type: "website",
   },
@@ -41,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary",
     title: "Best AI Tools Directory | AI Tools Hub",
     description:
-      "Explore the best AI tools for writing, coding, images, video, design, and productivity.",
+      "Discover and explore the best AI tools for writing, coding, images, video, design, productivity, and more.",
   },
 };
 
